@@ -652,3 +652,40 @@ html[data-tema="malam"] .zianarah_tombol_garis3 i{background:#E6F4FC;box-shadow:
 /* foto kartu cerita besar (beranda): rasio asli 3:2, tidak ditarik/di-zoom */
 .zianarah_besar .zianarah_foto_bungkus{aspect-ratio:3/2;flex:none;height:auto}
 .zianarah_besar .zianarah_foto{height:100%;object-fit:cover}
+
+/* ===== header HP: satu baris ramping; menu lengkap ada di laci tiga garis ===== */
+.zianarah_laci_alat,.zianarah_laci_global{display:none}
+.zianarah_laci_donasi{display:none!important}
+@media (max-width:1000px){
+  #zianarah_header .zianarah_baris_global{display:none}
+  #zianarah_header #zianarah_tombol_menu,#zianarah_header #zianarah_menu_bar{display:none!important}
+  #zianarah_header .zianarah_wadah{padding-left:clamp(10px,3.5vw,24px);padding-right:clamp(10px,3.5vw,24px)}
+  #zianarah_header .zianarah_header_atas{flex-wrap:nowrap;padding:clamp(6px,1.8vw,10px) 0;gap:clamp(6px,2vw,12px)}
+  #zianarah_header .zianarah_tombol_garis3{width:clamp(32px,9vw,40px);height:clamp(32px,9vw,40px)}
+  #zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:clamp(18px,5.6vw,30px)}
+  #zianarah_header .zianarah_logo_negara{display:none}
+  #zianarah_header .zianarah_alat{margin-left:auto;gap:clamp(4px,1.5vw,8px)}
+  #zianarah_header .zianarah_tombol_tema{width:clamp(30px,8vw,38px);height:clamp(30px,8vw,38px);font-size:clamp(1rem,4.4vw,1.2rem)}
+  #zianarah_header .zianarah_donasi_atas{display:inline-flex;height:clamp(28px,8vw,36px);padding:0 clamp(9px,3vw,16px);font-size:clamp(.66rem,2.9vw,.8rem)}
+  #zianarah_header.zianarah_kecil .zianarah_header_atas{padding:5px 0}
+  .zianarah_gelombang_header{height:10px}
+  .zianarah_laci_alat{display:flex;gap:8px;margin-bottom:10px}
+  .zianarah_laci_alat button{flex:1;border:1.5px solid #BFE6F7;background:#fff;color:#066A9C;border-radius:999px;padding:8px 6px;font:700 .8rem 'DM Sans',sans-serif;cursor:pointer}
+  .zianarah_laci_alat button.zianarah_terpilih{background:#066A9C;color:#fff;border-color:#066A9C}
+  .zianarah_laci_global{display:block;text-align:center;color:#066A9C;font-weight:700;font-size:.85rem;text-decoration:none;margin-bottom:10px}
+  html[data-tema="malam"] .zianarah_laci_alat button{background:#13293A;color:#E6F4FC;border-color:#24475E}
+  html[data-tema="malam"] .zianarah_laci_alat button.zianarah_terpilih{background:#00AEEF;color:#06101A}
+  html[data-tema="malam"] .zianarah_laci_global{color:#7DD3FC}
+}
+.zianarah_dn_pendek{display:none}
+@media (max-width:1000px){
+  .zianarah_dn_panjang{display:none}.zianarah_dn_pendek{display:inline}
+  #zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:clamp(16px,4.9vw,28px)}
+}
+@media (max-width:1000px){
+  #zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:clamp(14px,4.1vw,26px)}
+  #zianarah_header .zianarah_tombol_garis3{width:clamp(30px,8.2vw,40px);height:clamp(30px,8.2vw,40px)}
+  #zianarah_header .zianarah_tombol_tema{width:clamp(26px,7vw,36px);height:clamp(26px,7vw,36px)}
+  #zianarah_header .zianarah_header_atas{gap:clamp(5px,1.6vw,12px)}
+  #zianarah_header .zianarah_logo{min-width:0;flex-shrink:1}
+}
