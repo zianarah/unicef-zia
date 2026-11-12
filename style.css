@@ -1,0 +1,654 @@
+/* UNICEF Indonesia versi Zia — Rainbow Playful + Wavy Cloud Dividers (layout editorial/asimetris).
+   Semua class dan id berawalan zianarah_ */
+
+/* ═════════ TOKEN ═════════ */
+:root{
+  --zianarah_krem:#FFFFFF; --zianarah_krem2:#EEF8FD; --zianarah_krem3:#FFFBEB; --zianarah_kartu:#FFFFFF;
+  --zianarah_tinta:#1E293B; --zianarah_tinta2:#64748B; --zianarah_teks_gelap:#FFFFFF;
+  --zianarah_ungu:#0A84C1; --zianarah_ungu_gelap:#066A9C; --zianarah_ungu_muda:#E3F4FC;
+  --zianarah_biru:#38BDF8; --zianarah_biru_muda:#E0F4FE;
+  --zianarah_hijau:#34D399; --zianarah_hijau_muda:#DDF8EE;
+  --zianarah_kuning:#FBBF24; --zianarah_kuning_muda:#FEF3C7;
+  --zianarah_oranye:#F59E0B;
+  --zianarah_pink:#F472B6; --zianarah_pink_muda:#FCE7F3;
+  --zianarah_garis:#D9E8F1; --zianarah_gelap:#0B3A5E;
+  --zianarah_hero_akhir:#00AEEF;
+  --zianarah_r_sm:12px; --zianarah_r_md:20px; --zianarah_r_lg:28px; --zianarah_r_xl:40px;
+  --zianarah_bayangan:0 8px 28px rgba(6,106,156,.12);
+  --zianarah_bayangan_besar:0 18px 50px rgba(11,58,94,.2);
+  --zianarah_ease:cubic-bezier(.22,1,.36,1);
+}
+html[data-tema="malam"]{
+  --zianarah_krem:#0A1722; --zianarah_krem2:#0F2433; --zianarah_krem3:#0F2433; --zianarah_kartu:#13293A;
+  --zianarah_tinta:#E6F4FC; --zianarah_tinta2:#9DBBCC; --zianarah_garis:#24475E; --zianarah_gelap:#06101A;
+  --zianarah_ungu_muda:#12384F; --zianarah_biru_muda:#173048; --zianarah_hijau_muda:#12352B; --zianarah_kuning_muda:#3A2F10; --zianarah_pink_muda:#3A1A30;
+  --zianarah_hero_akhir:#0B5E8E;
+  --zianarah_bayangan:0 8px 28px rgba(0,0,0,.35);
+}
+
+/* ═════════ DASAR ═════════ */
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:150px;-webkit-font-smoothing:antialiased}
+body{font-family:'DM Sans',system-ui,sans-serif;font-size:16px;line-height:1.7;background:var(--zianarah_krem);color:var(--zianarah_tinta);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:'Outfit',system-ui,sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.02em;margin:0 0 .5rem}
+h1{font-weight:800}
+p{margin:0 0 1rem}
+.zianarah_wadah{max-width:1180px;margin:0 auto;padding:0 28px}
+.zianarah_bagian{padding:64px 0;position:relative}
+.zianarah_bagian_krem2{background:var(--zianarah_krem2)}
+.zianarah_bagian_krem3{background:var(--zianarah_krem3)}
+.zianarah_judul_bagian{font-size:clamp(1.7rem,3.2vw,2.5rem)}
+.zianarah_sub_bagian{color:var(--zianarah_tinta2);margin-bottom:2rem;max-width:58ch;font-size:1.05rem}
+.zianarah_judul_tengah{text-align:center}
+.zianarah_judul_tengah+.zianarah_sub_bagian{margin-left:auto;margin-right:auto;text-align:center}
+.zianarah_lewati{position:absolute;left:-999px;top:0;background:var(--zianarah_ungu);color:#fff;padding:10px 18px;border-radius:0 0 12px 0;z-index:100;font-weight:700}
+.zianarah_lewati:focus{left:0}
+:focus-visible{outline:3px solid var(--zianarah_kuning);outline-offset:2px}
+
+/* ═════════ HEADER ═════════ */
+#zianarah_header{position:sticky;top:0;z-index:50;background:var(--zianarah_krem);border-bottom:1px solid var(--zianarah_garis);box-shadow:0 4px 18px rgba(6,106,156,.06)}
+.zianarah_header_atas{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px 0;transition:padding .3s}
+#zianarah_header.zianarah_kecil .zianarah_header_atas{padding:4px 0}
+#zianarah_header.zianarah_kecil .zianarah_logo_gambar{height:44px}
+.zianarah_logo{display:flex;align-items:center;gap:10px;text-decoration:none;min-height:44px}
+.zianarah_logo_gambar{height:58px;width:auto;border-radius:4px;transition:height .3s}
+.zianarah_logo_teks{display:none;font-family:'Outfit',sans-serif;font-size:1.25rem;font-weight:800;color:var(--zianarah_ungu_gelap);white-space:nowrap}
+.zianarah_logo_teks.zianarah_tampil{display:inline}
+.zianarah_alat{display:flex;align-items:center;gap:8px}
+.zianarah_tombol_kecil{border:2px solid var(--zianarah_garis);background:var(--zianarah_kartu);color:var(--zianarah_tinta);border-radius:999px;padding:6px 14px;font:700 .82rem 'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:transform .2s var(--zianarah_ease),border-color .2s}
+.zianarah_tombol_kecil:hover{transform:translateY(-2px);border-color:var(--zianarah_ungu)}
+#zianarah_tombol_menu{display:none}
+#zianarah_menu_bar{border-top:1px solid var(--zianarah_garis);padding:6px 0}
+.zianarah_menu{list-style:none;display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.zianarah_menu_item{position:relative}
+.zianarah_menu_link{display:block;padding:7px 16px;border-radius:999px;text-decoration:none;font-weight:700;font-size:.9rem;border:0;background:none;color:var(--zianarah_tinta);font-family:inherit;cursor:pointer;transition:all .2s}
+.zianarah_menu_link:hover,.zianarah_menu_link:focus-visible{background:var(--zianarah_ungu_muda);color:var(--zianarah_ungu_gelap)}
+.zianarah_menu_link.zianarah_aktif{background:var(--zianarah_ungu);color:#fff}
+.zianarah_punya_sub{display:flex;align-items:center}
+.zianarah_pemicu_submenu{padding:7px 8px;margin-left:-8px}
+.zianarah_submenu{list-style:none;padding:8px;position:absolute;top:100%;left:0;min-width:270px;background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_md);box-shadow:var(--zianarah_bayangan_besar);display:none;z-index:60}
+.zianarah_menu_item:hover .zianarah_submenu,.zianarah_menu_item.zianarah_buka .zianarah_submenu,.zianarah_menu_item:focus-within .zianarah_submenu{display:block}
+.zianarah_submenu a{display:block;padding:9px 14px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem}
+.zianarah_submenu a:hover{background:var(--zianarah_ungu_muda);color:var(--zianarah_ungu_gelap)}
+
+/* ═════════ TOMBOL & LABEL ═════════ */
+.zianarah_tombol{display:inline-flex;align-items:center;gap:6px;font:700 .95rem 'DM Sans',sans-serif;border:0;border-radius:999px;padding:11px 24px;cursor:pointer;text-decoration:none;color:#fff;background:var(--zianarah_ungu);box-shadow:0 5px 0 var(--zianarah_ungu_gelap);transition:transform .2s var(--zianarah_ease),box-shadow .2s;position:relative;top:0}
+.zianarah_tombol:hover,.zianarah_tombol:focus-visible{transform:translateY(-2px);box-shadow:0 7px 0 var(--zianarah_ungu_gelap)}
+.zianarah_tombol:active{transform:translateY(3px);box-shadow:0 2px 0 var(--zianarah_ungu_gelap)}
+.zianarah_tombol_biru{background:var(--zianarah_biru);color:#0C2A3D;box-shadow:0 5px 0 #0EA5E9}
+.zianarah_tombol_biru:hover{box-shadow:0 7px 0 #0EA5E9}.zianarah_tombol_biru:active{box-shadow:0 2px 0 #0EA5E9}
+.zianarah_tombol_hijau{background:var(--zianarah_hijau);color:#053D2B;box-shadow:0 5px 0 #10B981}
+.zianarah_tombol_hijau:hover{box-shadow:0 7px 0 #10B981}.zianarah_tombol_hijau:active{box-shadow:0 2px 0 #10B981}
+.zianarah_tombol_oranye{background:var(--zianarah_kuning);color:#3B2A00;box-shadow:0 5px 0 #D97706}
+.zianarah_tombol_oranye:hover{box-shadow:0 7px 0 #D97706}.zianarah_tombol_oranye:active{box-shadow:0 2px 0 #D97706}
+.zianarah_tombol_pink{background:var(--zianarah_pink);color:#4A0D2B;box-shadow:0 5px 0 #DB2777}
+.zianarah_tombol_garis{background:var(--zianarah_kartu);color:var(--zianarah_ungu_gelap);border:2px solid var(--zianarah_ungu);box-shadow:none}
+html[data-tema="malam"] .zianarah_tombol_garis{color:#BFE6F7}
+.zianarah_tombol_garis:hover{background:var(--zianarah_ungu_muda);box-shadow:none}
+.zianarah_tombol_kecil_isi{padding:7px 16px;font-size:.86rem;box-shadow:0 3px 0 var(--zianarah_ungu_gelap)}
+.zianarah_tombol_kecil_isi.zianarah_tombol_biru{box-shadow:0 3px 0 #0EA5E9}
+.zianarah_tombol_kecil_isi.zianarah_tombol_hijau{box-shadow:0 3px 0 #10B981}
+.zianarah_tombol_kecil_isi.zianarah_tombol_oranye{box-shadow:0 3px 0 #D97706}
+.zianarah_tombol_kecil_isi.zianarah_tombol_garis{box-shadow:none}
+.zianarah_deret_tombol{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.zianarah_donasi{background:var(--zianarah_pink)!important;color:#4A0D2B!important;box-shadow:0 4px 0 #DB2777!important}
+.zianarah_bintang{position:fixed;pointer-events:none;font-size:22px;z-index:200;transition:transform .9s ease-out,opacity .9s}
+.zianarah_label{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.2);color:#fff;border-radius:999px;padding:5px 16px;font-weight:700;font-size:.8rem;margin-bottom:14px;letter-spacing:.02em}
+.zianarah_label_biru{background:var(--zianarah_biru_muda);color:#0369A1}
+.zianarah_label_oranye{background:var(--zianarah_kuning_muda);color:#92400E}
+.zianarah_label_kuning{background:var(--zianarah_kuning_muda);color:#92400E}
+.zianarah_label_ungu{background:var(--zianarah_ungu_muda);color:var(--zianarah_ungu_gelap)}
+.zianarah_label_hijau{background:var(--zianarah_hijau_muda);color:#047857}
+.zianarah_label_pink{background:var(--zianarah_pink_muda);color:#BE185D}
+html[data-tema="malam"] .zianarah_label_biru{color:#7DD3FC}
+html[data-tema="malam"] .zianarah_label_oranye,html[data-tema="malam"] .zianarah_label_kuning{color:#FCD34D}
+html[data-tema="malam"] .zianarah_label_hijau{color:#6EE7B7}
+html[data-tema="malam"] .zianarah_label_pink{color:#F9A8D4}
+html[data-tema="malam"] .zianarah_label_ungu{color:#BFE6F7}
+.zianarah_tanggal{font-size:.8rem;font-weight:700;color:var(--zianarah_tinta2)}
+
+/* ═════════ GELOMBANG AWAN ═════════ */
+.zianarah_gelombang{display:block;width:100%;height:46px;margin-top:-1px}
+.zianarah_gelombang_besar{height:70px}
+
+/* ═════════ FOTO ═════════ */
+.zianarah_foto_bungkus{position:relative;margin:0;overflow:hidden;background:var(--zianarah_krem2);border-radius:var(--zianarah_r_md);aspect-ratio:16/9}
+.zianarah_foto{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--zianarah_ease)}
+.zianarah_rasio_32{aspect-ratio:3/2}
+.zianarah_rasio_43{aspect-ratio:4/3}
+.zianarah_foto_ikon{background:#fff}
+.zianarah_foto_ikon .zianarah_foto{object-fit:contain;padding:10px}
+.zianarah_foto_bungkus.zianarah_foto_kosong .zianarah_foto{display:none}
+.zianarah_foto_bungkus.zianarah_foto_kosong::after{content:attr(data-label);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;font:600 .85rem 'DM Sans',sans-serif;color:var(--zianarah_tinta2);background:repeating-linear-gradient(45deg,var(--zianarah_krem2),var(--zianarah_krem2) 12px,var(--zianarah_ungu_muda) 12px,var(--zianarah_ungu_muda) 24px)}
+
+/* ═════════ HERO BERANDA ═════════ */
+.zianarah_hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#0B3A5E 0%,#0A84C1 50%,#00AEEF 100%);color:#fff}
+.zianarah_hero_bg{position:absolute;inset:0;pointer-events:none}
+.zianarah_blob{position:absolute;border-radius:50%;pointer-events:none}
+.zianarah_blob_a{width:420px;height:420px;top:-140px;right:-100px;background:rgba(244,114,182,.35);filter:blur(10px)}
+.zianarah_blob_b{width:300px;height:300px;bottom:-120px;left:-80px;background:rgba(56,189,248,.3);filter:blur(10px)}
+.zianarah_blob_c{width:90px;height:90px;top:20%;left:46%;border:3px dashed rgba(255,255,255,.3);animation:zianarah_putar 30s linear infinite}
+@keyframes zianarah_putar{to{transform:rotate(360deg)}}
+.zianarah_dekorasi{position:absolute;pointer-events:none;color:rgba(255,255,255,.35);font-size:26px;animation:zianarah_goyang 6s ease-in-out infinite}
+@keyframes zianarah_goyang{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-10px) rotate(6deg)}}
+.zianarah_hero_isi{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;position:relative;z-index:2;padding:64px 28px 110px}
+.zianarah_hero h1{font-size:clamp(2.3rem,5vw,3.8rem);color:#fff;line-height:1.05;letter-spacing:-.03em}
+.zianarah_hero h1 em{font-style:normal;color:var(--zianarah_kuning)}
+.zianarah_hero p{color:rgba(255,255,255,.88);font-size:1.12rem;max-width:46ch}
+.zianarah_hero .zianarah_tombol{background:#fff;color:var(--zianarah_ungu_gelap);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.zianarah_hero .zianarah_tombol_biru{background:rgba(255,255,255,.16);color:#fff;box-shadow:none;border:2px solid rgba(255,255,255,.5)}
+.zianarah_hero_foto{position:relative;padding:0 18px 18px 0}
+.zianarah_hero_foto .zianarah_foto_bungkus{border-radius:var(--zianarah_r_lg);aspect-ratio:3/2;border:6px solid #fff;box-shadow:16px 16px 0 var(--zianarah_kuning),0 20px 50px rgba(0,0,0,.25)}
+.zianarah_stiker{position:absolute;z-index:3;font-family:'Outfit',sans-serif;font-weight:800;text-align:center;box-shadow:0 10px 24px rgba(0,0,0,.2)}
+.zianarah_stiker_a{top:-22px;left:-26px;width:104px;height:104px;border-radius:50%;background:var(--zianarah_pink);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1.05;transform:rotate(-12deg);font-size:.8rem}
+.zianarah_stiker_a b{font-size:1.7rem;display:block}
+.zianarah_stiker_b{bottom:-6px;left:24px;background:var(--zianarah_hijau);color:#053D2B;padding:9px 18px;border-radius:999px;font-size:.9rem;transform:rotate(3deg)}
+.zianarah_hero .zianarah_gelombang{position:absolute;bottom:0;left:0;z-index:2}
+
+/* hero halaman dalam */
+.zianarah_hero_halaman{background:linear-gradient(135deg,#0B3A5E,#0A84C1 55%,#00AEEF);color:#fff;position:relative;overflow:hidden}
+.zianarah_hero_halaman .zianarah_hero_isi{padding:52px 28px 96px;grid-template-columns:1.1fr .9fr}
+.zianarah_hero_halaman h1{font-size:clamp(2rem,4.5vw,3.2rem);color:#fff}
+.zianarah_hero_halaman p{color:rgba(255,255,255,.9);font-size:1.05rem}
+.zianarah_hero_halaman .zianarah_hero_foto .zianarah_foto_bungkus{box-shadow:12px 12px 0 var(--zianarah_pink),0 16px 40px rgba(0,0,0,.22)}
+.zianarah_hero_halaman:nth-of-type(odd) .zianarah_hero_foto .zianarah_foto_bungkus{box-shadow:12px 12px 0 var(--zianarah_hijau),0 16px 40px rgba(0,0,0,.22)}
+.zianarah_hero_halaman .zianarah_gelombang{position:absolute;bottom:0;left:0;z-index:2}
+
+/* ═════════ STATISTIK — lingkaran melayang ═════════ */
+.zianarah_statistik{display:flex;justify-content:center;gap:clamp(18px,5vw,64px);flex-wrap:wrap;margin-top:-76px;position:relative;z-index:5}
+.zianarah_statistik_item{text-align:center;max-width:170px}
+.zianarah_angka{display:flex;align-items:center;justify-content:center;width:128px;height:128px;border-radius:50%;margin:0 auto 8px;font:800 2.1rem 'Outfit',sans-serif;color:#fff;box-shadow:0 12px 28px rgba(6,106,156,.3);border:5px solid var(--zianarah_krem);transition:transform .4s var(--zianarah_ease)}
+.zianarah_statistik_item:hover .zianarah_angka{transform:scale(1.08) rotate(-4deg)}
+.zianarah_statistik_item:nth-child(1) .zianarah_angka{background:var(--zianarah_ungu)}
+.zianarah_statistik_item:nth-child(2) .zianarah_angka{background:var(--zianarah_oranye)}
+.zianarah_statistik_item:nth-child(3) .zianarah_angka{background:var(--zianarah_pink)}
+.zianarah_statistik_item small{font-weight:700;color:var(--zianarah_tinta2);font-size:.85rem;line-height:1.3;display:block}
+
+/* ═════════ KARTU DASAR ═════════ */
+.zianarah_grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:26px}
+.zianarah_grid_dua{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:26px}
+.zianarah_kartu{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_lg);display:flex;flex-direction:column;overflow:hidden;transition:transform .35s var(--zianarah_ease),box-shadow .35s,border-color .35s}
+.zianarah_kartu:hover{transform:translateY(-6px) rotate(-.4deg);box-shadow:var(--zianarah_bayangan);border-color:var(--zianarah_ungu)}
+.zianarah_kartu:hover .zianarah_foto{transform:scale(1.04)}
+.zianarah_kartu .zianarah_foto_bungkus{border-radius:0;border-bottom:2px solid var(--zianarah_garis)}
+.zianarah_kartu_isi{flex:1;display:flex;flex-direction:column;gap:6px;padding:20px 22px 8px}
+.zianarah_kartu h3{font-size:1.1rem;margin:0;line-height:1.3}
+.zianarah_kartu p{font-size:.92rem;margin:0;color:var(--zianarah_tinta2)}
+.zianarah_kartu .zianarah_label{margin:0;align-self:flex-start;font-size:.74rem;padding:3px 12px}
+.zianarah_kartu>.zianarah_tombol,.zianarah_kartu>.zianarah_tombol_kecil_isi{align-self:flex-start;margin:12px 22px 22px}
+.zianarah_ikon{width:64px;height:64px;border-radius:20px;display:flex;align-items:center;justify-content:center;background:var(--zianarah_ungu_muda);flex-shrink:0}
+.zianarah_ikon img{width:42px;height:42px;object-fit:contain}
+.zianarah_tautan_teks{font-weight:700;color:var(--zianarah_ungu_gelap);text-decoration:none;border-bottom:2px solid var(--zianarah_kuning)}
+html[data-tema="malam"] .zianarah_tautan_teks{color:#BFE6F7}
+
+/* ═════════ BENTO CERITA (beranda) ═════════ */
+.zianarah_bento{display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto;gap:26px}
+.zianarah_bento>.zianarah_besar{grid-row:span 2}
+.zianarah_besar .zianarah_foto_bungkus{aspect-ratio:4/3}
+.zianarah_besar h3{font-size:1.6rem}
+.zianarah_besar p{font-size:1rem}
+.zianarah_bento>.zianarah_kecil_h{flex-direction:row;align-items:stretch}
+.zianarah_kecil_h .zianarah_foto_bungkus{width:44%;aspect-ratio:auto;flex-shrink:0;border-bottom:0;border-right:2px solid var(--zianarah_garis)}
+.zianarah_kecil_h .zianarah_kartu_isi{padding:18px}
+.zianarah_kecil_h .zianarah_tombol{margin:8px 18px 18px;align-self:flex-start}
+.zianarah_kecil_h .zianarah_bungkus_isi{display:flex;flex-direction:column;justify-content:space-between}
+
+/* ═════════ HALAMAN PILIHAN — kartu miring ═════════ */
+.zianarah_miring_wadah{display:grid;grid-template-columns:repeat(2,1fr);gap:40px;padding:10px 0}
+.zianarah_miring{background:var(--zianarah_kartu);border-radius:var(--zianarah_r_md);padding:14px 14px 20px;box-shadow:var(--zianarah_bayangan_besar);transform:rotate(-2deg);transition:transform .4s var(--zianarah_ease);position:relative}
+.zianarah_miring:nth-child(2){transform:rotate(2deg);margin-top:28px}
+.zianarah_miring:hover{transform:rotate(0) scale(1.02)}
+.zianarah_miring::before{content:'';position:absolute;top:-14px;left:50%;width:96px;height:28px;margin-left:-48px;background:rgba(251,191,36,.75);transform:rotate(-3deg);border-radius:3px;z-index:2}
+.zianarah_miring:nth-child(2)::before{background:rgba(244,114,182,.7);transform:rotate(4deg)}
+.zianarah_miring .zianarah_foto_bungkus{border-radius:12px;aspect-ratio:3/2}
+.zianarah_miring h3{margin:16px 6px 4px;font-size:1.25rem}
+.zianarah_miring p{margin:0 6px 12px;color:var(--zianarah_tinta2);font-size:.92rem}
+.zianarah_miring .zianarah_tombol{margin-left:6px}
+
+/* ═════════ BERITA / SIARAN PERS ═════════ */
+.zianarah_berita{display:grid;gap:18px}
+.zianarah_berita_item{display:grid;grid-template-columns:230px 1fr auto;gap:22px;align-items:center;background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_lg);padding:14px 22px 14px 14px;transition:transform .3s var(--zianarah_ease),border-color .3s,box-shadow .3s}
+.zianarah_berita_item:hover{transform:translateX(6px);border-color:var(--zianarah_pink);box-shadow:var(--zianarah_bayangan)}
+.zianarah_berita_item .zianarah_foto_bungkus{aspect-ratio:3/2;border-radius:var(--zianarah_r_md)}
+.zianarah_berita_item h3{font-size:1.1rem;margin:4px 0 0}
+.zianarah_nomor{font:800 1rem 'Outfit',sans-serif;display:inline-flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--zianarah_pink);color:#fff;margin-right:8px}
+.zianarah_berita_item:nth-child(2) .zianarah_nomor{background:var(--zianarah_biru);color:#0C2A3D}
+.zianarah_berita_item:nth-child(3) .zianarah_nomor{background:var(--zianarah_hijau);color:#053D2B}
+.zianarah_berita_item:nth-child(4) .zianarah_nomor{background:var(--zianarah_kuning);color:#3B2A00}
+
+/* ═════════ BIDANG KERJA — jajaran ikon ═════════ */
+.zianarah_jajar_ikon{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.zianarah_ikon_tautan{display:flex;flex-direction:column;align-items:center;gap:8px;text-decoration:none;width:108px;text-align:center;font-weight:700;font-size:.82rem;line-height:1.25;transition:transform .3s var(--zianarah_ease)}
+.zianarah_ikon_tautan:hover{transform:translateY(-6px) rotate(-3deg)}
+.zianarah_ikon_tautan .zianarah_ikon{width:86px;height:86px;border-radius:50%}
+.zianarah_ikon_tautan .zianarah_ikon img{width:58px;height:58px}
+.zianarah_ikon_tautan:nth-child(5n+1) .zianarah_ikon,.zianarah_kartu_topik:nth-child(5n+1) .zianarah_ikon{background:var(--zianarah_ungu_muda)}
+.zianarah_ikon_tautan:nth-child(5n+2) .zianarah_ikon,.zianarah_kartu_topik:nth-child(5n+2) .zianarah_ikon{background:var(--zianarah_pink_muda)}
+.zianarah_ikon_tautan:nth-child(5n+3) .zianarah_ikon,.zianarah_kartu_topik:nth-child(5n+3) .zianarah_ikon{background:var(--zianarah_kuning_muda)}
+.zianarah_ikon_tautan:nth-child(5n+4) .zianarah_ikon,.zianarah_kartu_topik:nth-child(5n+4) .zianarah_ikon{background:var(--zianarah_hijau_muda)}
+.zianarah_ikon_tautan:nth-child(5n) .zianarah_ikon,.zianarah_kartu_topik:nth-child(5n) .zianarah_ikon{background:var(--zianarah_biru_muda)}
+
+/* ═════════ MOZAIK FOTO ═════════ */
+.zianarah_mozaik{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:110px;gap:14px}
+.zianarah_mozaik .zianarah_foto_bungkus{height:100%;aspect-ratio:auto;border-radius:var(--zianarah_r_md);border:4px solid var(--zianarah_kartu);box-shadow:var(--zianarah_bayangan);transition:transform .4s var(--zianarah_ease)}
+.zianarah_mozaik .zianarah_foto_bungkus:hover{transform:scale(1.03) rotate(-1.5deg);z-index:2}
+.zianarah_mozaik .zianarah_foto_bungkus:hover .zianarah_foto{transform:none}
+.zianarah_mozaik .zianarah_m1,.zianarah_mozaik .zianarah_m2{grid-column:span 3;grid-row:span 3}
+.zianarah_mozaik .zianarah_m3,.zianarah_mozaik .zianarah_m4,.zianarah_mozaik .zianarah_m5{grid-column:span 2;grid-row:span 2}
+.zianarah_keterangan_mozaik{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+/* ═════════ BANNER CTA ═════════ */
+.zianarah_banner{background:linear-gradient(135deg,#066A9C,#0A84C1 60%,#818CF8);color:#fff;border-radius:var(--zianarah_r_xl);padding:46px 46px 46px 50px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;position:relative;box-shadow:var(--zianarah_bayangan_besar)}
+.zianarah_banner h2{color:#fff;font-size:clamp(1.7rem,3.2vw,2.4rem)}
+.zianarah_banner p{color:rgba(255,255,255,.9);font-size:1.05rem}
+.zianarah_banner .zianarah_foto_bungkus{aspect-ratio:3/2;border-radius:var(--zianarah_r_lg);border:5px solid #fff;transform:rotate(3deg) translateY(-14px) scale(1.03);box-shadow:0 18px 40px rgba(0,0,0,.3)}
+.zianarah_banner .zianarah_tombol{background:#fff;color:var(--zianarah_ungu_gelap);box-shadow:0 5px 0 rgba(0,0,0,.18)}
+.zianarah_banner .zianarah_tombol.zianarah_donasi{background:var(--zianarah_pink)!important;color:#4A0D2B!important}
+.zianarah_banner .zianarah_tombol_biru{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55);box-shadow:none}
+.zianarah_banner_dekorasi{position:absolute;color:rgba(255,255,255,.45);font-size:30px;animation:zianarah_goyang 6s ease-in-out infinite}
+
+/* ═════════ TAUTAN CEPAT / SITUS TERKAIT ═════════ */
+.zianarah_sosial{display:flex;flex-wrap:wrap;gap:10px}
+.zianarah_sisi_kartu{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+.zianarah_kartu_samping{flex-direction:row;align-items:center;gap:20px;padding:22px 24px}
+.zianarah_kartu_samping .zianarah_ikon{width:72px;height:72px}
+.zianarah_kartu_samping .zianarah_ikon img{width:48px;height:48px}
+.zianarah_kartu_samping h3{padding:0}
+.zianarah_kartu_samping .zianarah_tombol{margin:10px 0 0}
+
+/* ═════════ UPAYA — kartu topik berselang-seling ═════════ */
+.zianarah_kartu_topik{padding:26px 24px 22px;gap:12px;position:relative}
+.zianarah_kartu_topik h3{font-size:1.15rem}
+.zianarah_kartu_topik .zianarah_ikon{width:92px;height:92px;border-radius:50%;margin-bottom:4px;transition:transform .4s var(--zianarah_ease)}
+.zianarah_kartu_topik:hover .zianarah_ikon{transform:scale(1.08) rotate(-6deg)}
+.zianarah_kartu_topik .zianarah_ikon img{width:62px;height:62px}
+.zianarah_kartu_topik .zianarah_tombol{margin:auto 0 0;align-self:flex-start}
+.zianarah_kartu_topik .zianarah_nomor_topik{position:absolute;top:18px;right:22px;font:800 2.6rem 'Outfit',sans-serif;color:var(--zianarah_ungu_muda);line-height:1}
+.zianarah_susun .zianarah_kartu_topik:nth-child(3n+2){margin-top:34px}
+.zianarah_susun .zianarah_kartu_topik:nth-child(3n+3){margin-top:12px}
+
+/* tile jelajah */
+.zianarah_tile{position:relative;border-radius:var(--zianarah_r_lg);overflow:hidden;text-decoration:none;color:#fff;display:block;aspect-ratio:4/3;box-shadow:var(--zianarah_bayangan);transition:transform .4s var(--zianarah_ease)}
+.zianarah_tile:hover{transform:translateY(-6px) rotate(-1deg)}
+.zianarah_tile .zianarah_foto_bungkus{position:absolute;inset:0;aspect-ratio:auto;border-radius:0}
+.zianarah_tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(11,58,94,.92),rgba(11,58,94,.1) 60%)}
+.zianarah_tile_isi{position:absolute;left:0;right:0;bottom:0;padding:20px;z-index:2}
+.zianarah_tile_isi h3{color:#fff;margin:0 0 6px;font-size:1.25rem}
+.zianarah_tile_isi span{display:inline-block;background:var(--zianarah_kuning);color:#3B2A00;font-weight:800;font-size:.8rem;padding:4px 14px;border-radius:999px}
+
+/* ═════════ PENCARIAN, CHIP ═════════ */
+.zianarah_kontrol{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:20px}
+.zianarah_cari{flex:1;min-width:230px;padding:12px 20px;border:2px solid var(--zianarah_garis);border-radius:999px;font:inherit;background:var(--zianarah_kartu);color:var(--zianarah_tinta)}
+.zianarah_cari:focus{outline:none;border-color:var(--zianarah_ungu);box-shadow:0 0 0 4px rgba(10,132,193,.15)}
+.zianarah_chip{display:inline-flex;align-items:center;gap:7px;border:2px solid var(--zianarah_garis);border-radius:999px;padding:5px 16px 5px 6px;background:var(--zianarah_kartu);color:var(--zianarah_tinta);font:700 .85rem 'DM Sans',sans-serif;cursor:pointer;transition:all .2s}
+.zianarah_chip:not(:has(img)){padding-left:16px}
+.zianarah_chip img{width:26px;height:26px;border-radius:50%;object-fit:contain;background:#fff;padding:2px}
+.zianarah_chip:hover{border-color:var(--zianarah_ungu);transform:translateY(-2px)}
+.zianarah_chip.zianarah_aktif{background:var(--zianarah_ungu);color:#fff;border-color:var(--zianarah_ungu)}
+.zianarah_jumlah{font-weight:700;color:var(--zianarah_tinta2);margin-bottom:14px;font-size:.9rem}
+.zianarah_kosong{display:none;text-align:center;padding:40px;border:2px dashed var(--zianarah_garis);border-radius:var(--zianarah_r_lg)}
+.zianarah_kosong.zianarah_tampil{display:block}
+.zianarah_sembunyi{display:none!important}
+
+/* daftar laporan / pers */
+.zianarah_daftar{display:grid;gap:16px}
+.zianarah_baris{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_lg);padding:14px 22px 14px 14px;display:grid;grid-template-columns:170px 1fr auto;gap:8px 22px;align-items:center;transition:transform .3s var(--zianarah_ease),border-color .3s,box-shadow .3s}
+.zianarah_baris:hover{transform:translateX(6px);border-color:var(--zianarah_ungu);box-shadow:var(--zianarah_bayangan)}
+.zianarah_baris .zianarah_foto_bungkus{aspect-ratio:3/2;border-radius:var(--zianarah_r_md)}
+.zianarah_baris h3{font-size:1.05rem;margin:4px 0}
+.zianarah_baris p{margin:0;font-size:.9rem;color:var(--zianarah_tinta2)}
+.zianarah_daftar>.zianarah_baris:first-child{grid-template-columns:minmax(0,1.05fr) 1fr;padding:0;overflow:hidden;gap:0;align-items:stretch}
+.zianarah_daftar>.zianarah_baris:first-child .zianarah_foto_bungkus{border-radius:0;height:100%;aspect-ratio:3/2}
+.zianarah_daftar>.zianarah_baris:first-child .zianarah_isi_baris{padding:26px 28px}
+.zianarah_daftar>.zianarah_baris:first-child h3{font-size:1.6rem}
+.zianarah_daftar>.zianarah_baris:first-child p{font-size:1rem;margin-bottom:14px}
+.zianarah_daftar>.zianarah_baris:first-child>.zianarah_tombol{display:none}
+.zianarah_isi_baris .zianarah_tombol{margin-top:10px}
+.zianarah_daftar>.zianarah_baris:not(:first-child) .zianarah_isi_baris .zianarah_tombol{display:none}
+
+/* ═════════ AKORDEON ═════════ */
+.zianarah_akordeon_item{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_md);margin-bottom:12px;overflow:hidden;transition:border-color .2s}
+.zianarah_akordeon_item.zianarah_buka{border-color:var(--zianarah_ungu)}
+.zianarah_akordeon_tombol{width:100%;text-align:left;background:none;border:0;padding:16px 22px;font:700 1rem 'Outfit',sans-serif;color:var(--zianarah_tinta);cursor:pointer;display:flex;justify-content:space-between;gap:16px;line-height:1.4}
+.zianarah_akordeon_tombol::after{content:'+';font-size:1.3rem;line-height:1;color:var(--zianarah_ungu);transition:transform .3s;flex-shrink:0;width:28px;height:28px;border-radius:50%;background:var(--zianarah_ungu_muda);display:flex;align-items:center;justify-content:center}
+.zianarah_akordeon_item.zianarah_buka .zianarah_akordeon_tombol::after{content:'\2212';transform:rotate(180deg)}
+.zianarah_akordeon_isi{max-height:0;overflow:hidden;transition:max-height .35s ease;padding:0 22px}
+.zianarah_akordeon_item.zianarah_buka .zianarah_akordeon_isi{padding-bottom:16px}
+
+/* ═════════ LINIMASA ═════════ */
+.zianarah_linimasa{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;position:relative;padding-top:34px}
+.zianarah_linimasa::before{content:'';position:absolute;top:13px;left:6%;right:6%;border-top:4px dotted var(--zianarah_ungu);opacity:.4}
+.zianarah_titik{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_lg);padding:28px 24px 22px;position:relative;transition:transform .3s var(--zianarah_ease)}
+.zianarah_titik:hover{transform:translateY(-6px)}
+.zianarah_titik::before{content:'';position:absolute;top:-30px;left:26px;width:22px;height:22px;border-radius:50%;background:var(--zianarah_ungu);border:5px solid var(--zianarah_krem2);box-shadow:0 0 0 3px var(--zianarah_ungu)}
+.zianarah_titik:nth-child(2)::before{background:var(--zianarah_pink);box-shadow:0 0 0 3px var(--zianarah_pink)}
+.zianarah_titik:nth-child(3)::before{background:var(--zianarah_oranye);box-shadow:0 0 0 3px var(--zianarah_oranye)}
+.zianarah_tahun_angka{font:800 2.8rem 'Outfit',sans-serif;line-height:1;display:block;margin-bottom:8px;color:var(--zianarah_ungu)}
+.zianarah_titik:nth-child(2) .zianarah_tahun_angka{color:var(--zianarah_pink)}
+.zianarah_titik:nth-child(3) .zianarah_tahun_angka{color:var(--zianarah_oranye)}
+
+/* ═════════ BAGIAN FOTO + TEKS (tentang) ═════════ */
+.zianarah_dua_kolom{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.zianarah_dua_kolom.zianarah_balik{grid-template-columns:.9fr 1.1fr}
+.zianarah_dua_kolom.zianarah_balik>:first-child{order:2}
+.zianarah_figur{position:relative;padding:0 16px 16px 0}
+.zianarah_balik .zianarah_figur{padding:0 0 16px 16px}
+.zianarah_figur .zianarah_foto_bungkus{aspect-ratio:3/2;border-radius:var(--zianarah_r_lg);border:6px solid var(--zianarah_kartu);box-shadow:14px 14px 0 var(--zianarah_kuning),var(--zianarah_bayangan)}
+.zianarah_balik .zianarah_figur .zianarah_foto_bungkus{box-shadow:-14px 14px 0 var(--zianarah_hijau),var(--zianarah_bayangan)}
+.zianarah_figur_pink .zianarah_foto_bungkus{box-shadow:14px 14px 0 var(--zianarah_pink),var(--zianarah_bayangan)}
+.zianarah_catatan_foto{position:absolute;bottom:-4px;left:-10px;z-index:3;background:var(--zianarah_pink);color:#fff;font:800 .95rem 'Outfit',sans-serif;padding:10px 20px;border-radius:999px;transform:rotate(-4deg);box-shadow:0 10px 22px rgba(0,0,0,.2)}
+.zianarah_balik .zianarah_catatan_foto{left:auto;right:-10px;transform:rotate(4deg);background:var(--zianarah_hijau);color:#053D2B}
+.zianarah_figur_pink .zianarah_catatan_foto{background:var(--zianarah_ungu);color:#fff}
+.zianarah_mitra_jenis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;margin:24px 0 8px}
+.zianarah_mitra_jenis div{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_md);padding:16px 10px;text-align:center;font-weight:700;font-size:.86rem;line-height:1.3;transition:transform .3s var(--zianarah_ease)}
+.zianarah_mitra_jenis div:hover{transform:translateY(-5px) rotate(-2deg);border-color:var(--zianarah_ungu)}
+.zianarah_mitra_jenis img{width:70px;height:70px;object-fit:contain;margin:0 auto 8px}
+
+/* ═════════ FORM ═════════ */
+.zianarah_form{background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_lg);padding:30px;box-shadow:var(--zianarah_bayangan)}
+.zianarah_form .zianarah_judul_bagian{font-size:1.7rem;margin-bottom:1.2rem}
+.zianarah_kolom{margin-bottom:16px}
+.zianarah_kolom label{display:block;font-weight:700;margin-bottom:6px;font-size:.9rem}
+.zianarah_kolom input,.zianarah_kolom select,.zianarah_kolom textarea{width:100%;padding:12px 18px;border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_sm);font:inherit;background:var(--zianarah_krem);color:var(--zianarah_tinta)}
+.zianarah_kolom input:focus,.zianarah_kolom select:focus,.zianarah_kolom textarea:focus{outline:none;border-color:var(--zianarah_ungu);box-shadow:0 0 0 4px rgba(10,132,193,.14)}
+.zianarah_kolom textarea{min-height:140px;resize:vertical}
+.zianarah_kolom.zianarah_salah input,.zianarah_kolom.zianarah_salah select,.zianarah_kolom.zianarah_salah textarea{border-color:#EF4444}
+.zianarah_galat{color:#DC2626;font-size:.82rem;font-weight:700;min-height:1.2em;margin:4px 0 0}
+html[data-tema="malam"] .zianarah_galat{color:#FCA5A5}
+.zianarah_hitung{font-size:.8rem;color:var(--zianarah_tinta2);text-align:right}
+.zianarah_sukses{display:none;background:var(--zianarah_hijau_muda);color:#047857;border-radius:var(--zianarah_r_md);padding:20px;margin-top:16px}
+html[data-tema="malam"] .zianarah_sukses{color:#6EE7B7}
+.zianarah_sukses.zianarah_tampil{display:block}
+.zianarah_info_kontak{list-style:none;display:grid;gap:12px;margin-bottom:14px}
+.zianarah_info_kontak li{display:flex;gap:12px;align-items:flex-start}
+.zianarah_aside_kontak .zianarah_kartu{padding:26px}
+.zianarah_aside_kontak .zianarah_kartu h3{margin-bottom:12px}
+.zianarah_aside_kontak .zianarah_sosial{margin-top:10px}
+.zianarah_aside_kontak .zianarah_tombol{margin:0}
+.zianarah_bank{margin-top:16px;padding-top:16px;border-top:2px dashed var(--zianarah_garis)}
+.zianarah_bank .zianarah_foto_bungkus{aspect-ratio:auto;border-radius:12px;background:#fff}
+.zianarah_bank .zianarah_foto{height:auto;object-fit:contain}
+
+/* ═════════ KOTAK KONTAK MEDIA ═════════ */
+.zianarah_kartu_media{padding:26px;position:sticky;top:160px;gap:10px}
+.zianarah_kartu_media .zianarah_tombol{margin:8px 0 0}
+
+/* ═════════ FOOTER ═════════ */
+#zianarah_footer{background:linear-gradient(180deg,#0B3A5E,#1E1B4B);color:rgba(255,255,255,.8);padding:30px 0 24px;position:relative}
+.zianarah_footer_dekorasi{position:absolute;right:6%;top:40px;font-size:60px;color:rgba(255,255,255,.07)}
+.zianarah_footer_grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:36px}
+#zianarah_footer h4{color:#fff;font-size:1rem;margin-bottom:12px}
+#zianarah_footer ul{list-style:none}
+#zianarah_footer li{margin-bottom:6px}
+#zianarah_footer a{text-decoration:none;color:rgba(255,255,255,.72)}
+#zianarah_footer a:hover{color:var(--zianarah_kuning)}
+#zianarah_footer .zianarah_logo_gambar{height:46px;border-radius:0}
+.zianarah_footer_bawah{border-top:1px solid rgba(255,255,255,.16);margin-top:30px;padding-top:16px;font-size:.85rem;display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+#zianarah_panel_cookie{display:none;position:fixed;left:16px;bottom:16px;max-width:360px;background:var(--zianarah_kartu);border:2px solid var(--zianarah_garis);border-radius:var(--zianarah_r_md);padding:18px;z-index:90;font-size:.9rem;box-shadow:var(--zianarah_bayangan_besar)}
+#zianarah_panel_cookie.zianarah_tampil{display:block}
+#zianarah_ke_atas{position:fixed;right:20px;bottom:20px;width:48px;height:48px;border-radius:50%;border:0;background:var(--zianarah_ungu);color:#fff;font-size:1.3rem;cursor:pointer;display:none;z-index:80;box-shadow:0 5px 0 var(--zianarah_ungu_gelap)}
+#zianarah_ke_atas.zianarah_tampil{display:flex;align-items:center;justify-content:center}
+
+/* ═════════ ANIMASI MUNCUL ═════════ */
+.zianarah_muncul{opacity:0;transform:translateY(24px);transition:opacity .7s var(--zianarah_ease),transform .7s var(--zianarah_ease)}
+.zianarah_muncul.zianarah_terlihat{opacity:1;transform:none}
+
+/* ═════════ RESPONSIF ═════════ */
+@media (max-width:1000px){
+  .zianarah_bento{grid-template-columns:1fr}
+  .zianarah_bento>.zianarah_besar{grid-row:auto}
+  .zianarah_berita_item{grid-template-columns:150px 1fr}
+  .zianarah_berita_item>.zianarah_tombol{grid-column:2}
+  .zianarah_mozaik{grid-template-columns:repeat(6,1fr);grid-auto-rows:80px}
+}
+@media (max-width:900px){
+  #zianarah_tombol_menu{display:inline-block}
+  #zianarah_menu_bar{display:none}
+  #zianarah_menu_bar.zianarah_buka{display:block}
+  .zianarah_menu{flex-direction:column;align-items:stretch}
+  .zianarah_submenu{position:static;display:none;box-shadow:none;margin:4px 0 0 12px}
+  .zianarah_menu_item:hover .zianarah_submenu{display:none}
+  .zianarah_menu_item.zianarah_buka .zianarah_submenu{display:block}
+  .zianarah_hero_isi,.zianarah_hero_halaman .zianarah_hero_isi{grid-template-columns:1fr;padding:40px 22px 96px;gap:36px}
+  .zianarah_banner{grid-template-columns:1fr;padding:32px 26px}
+  .zianarah_banner .zianarah_foto_bungkus{transform:rotate(2deg)}
+  .zianarah_dua_kolom,.zianarah_dua_kolom.zianarah_balik{grid-template-columns:1fr;gap:36px}
+  .zianarah_dua_kolom.zianarah_balik>:first-child{order:0}
+  .zianarah_linimasa{grid-template-columns:1fr;gap:34px}
+  .zianarah_linimasa::before{display:none}
+  .zianarah_miring_wadah,.zianarah_sisi_kartu{grid-template-columns:1fr}
+  .zianarah_miring:nth-child(2){margin-top:0}
+  .zianarah_footer_grid{grid-template-columns:1fr}
+  .zianarah_susun .zianarah_kartu_topik:nth-child(n){margin-top:0}
+  .zianarah_daftar>.zianarah_baris:first-child{grid-template-columns:1fr}
+  .zianarah_kartu_media{position:static}
+  .zianarah_bagian{padding:48px 0}
+}
+@media (max-width:620px){
+  .zianarah_wadah{padding:0 18px}
+  .zianarah_bagian{padding:40px 0}
+  .zianarah_grid,.zianarah_grid_dua{grid-template-columns:1fr}
+  .zianarah_donasi_atas{display:none}
+  .zianarah_logo_gambar{height:46px}
+  .zianarah_alat{gap:6px}
+  .zianarah_tombol_kecil{padding:5px 10px;font-size:.78rem}
+  .zianarah_baris,.zianarah_berita_item{grid-template-columns:1fr}
+  .zianarah_berita_item>.zianarah_tombol{grid-column:auto;justify-self:start}
+  .zianarah_baris>.zianarah_tombol{justify-self:start}
+  .zianarah_kecil_h{flex-direction:column!important}
+  .zianarah_kecil_h .zianarah_foto_bungkus{width:100%;aspect-ratio:16/9;border-right:0;border-bottom:2px solid var(--zianarah_garis)}
+  .zianarah_stiker_a{width:84px;height:84px;top:-16px;left:-8px;font-size:.7rem}
+  .zianarah_stiker_a b{font-size:1.35rem}
+  .zianarah_angka{width:104px;height:104px;font-size:1.7rem}
+  .zianarah_statistik{margin-top:-64px}
+  .zianarah_mozaik{grid-template-columns:repeat(2,1fr);grid-auto-rows:100px}
+  .zianarah_mozaik .zianarah_foto_bungkus:nth-child(n){grid-column:span 1;grid-row:span 1}
+  .zianarah_mozaik .zianarah_foto_bungkus.zianarah_m1{grid-column:span 2;grid-row:span 2}
+  .zianarah_kartu_samping{flex-direction:column;align-items:flex-start}
+  .zianarah_form{padding:22px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+  .zianarah_muncul{opacity:1;transform:none}
+}
+
+/* ═════════ TAMBAHAN ═════════ */
+.zianarah_kartu.zianarah_unggulan{grid-column:span 2;flex-direction:row;align-items:stretch}
+.zianarah_unggulan .zianarah_foto_bungkus{width:52%;aspect-ratio:auto;border-bottom:0;border-right:2px solid var(--zianarah_garis);flex-shrink:0;min-height:260px}
+.zianarah_unggulan .zianarah_kartu_isi{padding:26px 26px 8px}
+.zianarah_unggulan h3{font-size:1.5rem}
+.zianarah_unggulan>.zianarah_tombol{align-self:flex-end;margin:12px 26px 26px 0}
+@media (max-width:1000px){.zianarah_kartu.zianarah_unggulan{grid-column:auto;flex-direction:column}.zianarah_unggulan .zianarah_foto_bungkus{width:100%;aspect-ratio:16/9;min-height:0;border-right:0;border-bottom:2px solid var(--zianarah_garis)}}
+.zianarah_dua_kolom>aside{min-width:0}
+@media (min-width:1001px){.zianarah_grid:has(>.zianarah_tile:nth-child(4):last-child){grid-template-columns:repeat(4,1fr)}.zianarah_grid:has(>.zianarah_tile:nth-child(4):last-child) .zianarah_tile{aspect-ratio:3/4}}
+.zianarah_kartu.zianarah_unggulan{display:grid;grid-template-columns:52% 1fr;grid-template-rows:1fr auto}
+.zianarah_unggulan .zianarah_foto_bungkus{grid-row:1/3;width:auto}
+.zianarah_unggulan>.zianarah_tombol{align-self:end;justify-self:start;margin:12px 26px 26px}
+@media (max-width:1000px){.zianarah_kartu.zianarah_unggulan{display:flex}}
+@media (max-width:620px){.zianarah_cari{flex:1 1 100%;min-width:0}}
+
+/* ===== halaman detail ===== */
+.zianarah_artikel p{font-size:1.06rem;line-height:1.85;margin:0 0 18px}
+.zianarah_detail{grid-template-columns:1.8fr 1fr;align-items:start}
+.zianarah_fakta{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:12px}
+.zianarah_fakta li{position:relative;padding:12px 14px 12px 40px;background:var(--zianarah_kuning_muda);border-radius:14px;font-weight:600;font-size:.95rem;line-height:1.45}
+.zianarah_fakta li::before{content:"\2726";position:absolute;left:14px;top:12px;color:var(--zianarah_ungu)}
+.zianarah_sumber{font-size:.85rem;opacity:.8;margin-top:24px}
+.zianarah_kartu.zianarah_unggulan{display:grid;grid-template-columns:52% 1fr;grid-template-rows:1fr auto;align-items:start}
+.zianarah_unggulan .zianarah_foto_bungkus{grid-row:1/3;min-height:0;aspect-ratio:3/2;align-self:start}
+.zianarah_unggulan .zianarah_foto_bungkus img{object-fit:cover}
+@media (max-width:1000px){.zianarah_detail{grid-template-columns:1fr}}
+.zianarah_kartu.zianarah_unggulan{grid-column:1/-1;grid-template-rows:1fr auto}
+.zianarah_unggulan .zianarah_foto_bungkus{align-self:stretch}
+.zianarah_hero_halaman .zianarah_tanggal{display:inline-block;margin:6px 0 14px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.22);color:#fff;font-weight:700}
+@media (max-width:1000px){.zianarah_kartu.zianarah_unggulan{display:flex;grid-column:auto}}
+
+/* ===== bar global, logo, tombol bersih, ikon sosial ===== */
+.zianarah_bar_global{background:var(--zianarah_ungu_gelap);color:#fff;font:600 .8rem 'DM Sans',sans-serif}
+.zianarah_bar_global .zianarah_wadah{display:flex;justify-content:flex-end;padding-top:7px;padding-bottom:7px}
+.zianarah_bar_global a{color:#fff;text-decoration:none;letter-spacing:.02em}
+.zianarah_bar_global a:hover{text-decoration:underline}
+.zianarah_logo_blok{display:flex;flex-direction:column;gap:2px;background:#00AEEF;border-radius:14px;padding:9px 16px 7px;box-shadow:0 4px 0 #0089BD;transition:padding .3s}
+.zianarah_logo_blok .zianarah_logo_gambar{height:32px;width:auto;border-radius:0;display:block;transition:height .3s}
+.zianarah_logo_negara{font:700 .8rem 'Outfit',sans-serif;color:#0A2540;letter-spacing:.02em;line-height:1}
+#zianarah_header.zianarah_kecil .zianarah_logo_blok .zianarah_logo_gambar{height:24px}
+#zianarah_header.zianarah_kecil .zianarah_logo_blok{padding:6px 14px 5px}
+.zianarah_alat{gap:10px}
+.zianarah_alat .zianarah_tombol_kecil{border:0;background:var(--zianarah_ungu_muda);color:var(--zianarah_ungu_gelap);height:38px;min-width:38px;padding:0 16px;display:inline-flex;align-items:center;justify-content:center;font:700 .85rem 'DM Sans',sans-serif;box-shadow:none}
+.zianarah_alat .zianarah_tombol_kecil:hover{background:var(--zianarah_ungu);color:#fff;transform:none}
+.zianarah_alat #zianarah_tombol_tema{padding:0;width:38px;font-size:1.05rem}
+.zianarah_alat .zianarah_donasi_atas{height:38px;padding:0 20px;display:inline-flex;align-items:center;font-size:.85rem;box-shadow:none!important;border-radius:999px;transform:none}
+.zianarah_alat .zianarah_donasi_atas:hover{filter:brightness(.95);transform:none}
+.zianarah_ikon_sosial_baris{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+.zianarah_ikon_sosial{width:44px;height:44px;border-radius:50%;display:inline-grid;place-items:center;background:var(--zianarah_ungu);color:#fff;transition:transform .2s,background .2s}
+.zianarah_ikon_sosial svg{width:20px;height:20px}
+.zianarah_ikon_sosial:hover{transform:translateY(-3px);background:var(--zianarah_pink)}
+#zianarah_footer .zianarah_ikon_sosial{background:rgba(255,255,255,.14);color:#fff}
+#zianarah_footer .zianarah_ikon_sosial:hover{background:var(--zianarah_pink);color:#fff}
+.zianarah_kartu_topik .zianarah_nomor_topik{width:44px;height:44px;border-radius:50%;background:var(--zianarah_ungu);color:#fff;font:800 1.1rem 'Outfit',sans-serif;display:grid;place-items:center;top:18px;right:20px;box-shadow:0 3px 0 var(--zianarah_ungu_gelap)}
+@media (max-width:620px){.zianarah_logo_blok .zianarah_logo_gambar{height:22px}.zianarah_logo_blok{padding:7px 12px 5px;border-radius:12px}.zianarah_logo_negara{font-size:.7rem}.zianarah_alat{gap:6px}.zianarah_alat .zianarah_tombol_kecil{padding:0 10px;height:34px}.zianarah_alat #zianarah_tombol_tema{width:34px}}
+
+/* ===== header v3: pita biru UNICEF, serba transparan ===== */
+.zianarah_bar_global{display:none}
+#zianarah_header{background:#00AEEF;border-bottom:0;box-shadow:none;overflow:visible}
+#zianarah_header .zianarah_wadah{position:relative}
+.zianarah_baris_global{display:flex;justify-content:flex-end;align-items:center;gap:16px;padding-top:10px;font:700 .82rem 'DM Sans',sans-serif;color:#0A2540}
+.zianarah_baris_global a{color:#0A2540;text-decoration:none}
+.zianarah_baris_global a:hover,.zianarah_tombol_bahasa:hover{text-decoration:underline}
+.zianarah_pemisah{width:1px;height:16px;background:rgba(10,37,64,.4)}
+.zianarah_tombol_bahasa{border:0;background:none;color:#0A2540;font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px;padding:0}
+.zianarah_tombol_bahasa::before{content:"\1F310";font-size:1rem}
+.zianarah_tombol_bahasa::after{content:"\25BE"}
+#zianarah_header .zianarah_header_atas{padding:4px 0 8px}
+#zianarah_header .zianarah_logo_blok{background:none;box-shadow:none;border-radius:0;padding:0}
+#zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:44px}
+#zianarah_header .zianarah_logo_negara{margin-top:3px;font-size:.95rem;color:#0A2540}
+#zianarah_header .zianarah_tombol_tema{border:0;background:transparent;box-shadow:none;width:40px;height:40px;border-radius:50%;font-size:1.25rem;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+#zianarah_header .zianarah_tombol_tema:hover{background:rgba(255,255,255,.3)}
+#zianarah_header .zianarah_donasi_atas{display:inline-flex;align-items:center;height:40px;padding:0 22px;border:2px solid #fff;border-radius:999px;background:transparent;color:#fff;font:800 .85rem 'DM Sans',sans-serif;letter-spacing:.04em;text-decoration:none;transition:background .2s,color .2s}
+#zianarah_header .zianarah_donasi_atas:hover{background:#fff;color:#0089BD}
+#zianarah_header #zianarah_tombol_menu{background:transparent;border:2px solid #fff;color:#fff;box-shadow:none;height:40px}
+#zianarah_menu_bar{border-top:1px solid rgba(255,255,255,.5);padding:12px 0 34px}
+#zianarah_header .zianarah_menu_link{color:#0A2540}
+#zianarah_header .zianarah_menu_link:hover,#zianarah_header .zianarah_menu_link:focus-visible{background:rgba(255,255,255,.35);color:#0A2540}
+#zianarah_header .zianarah_menu_link.zianarah_aktif{background:var(--zianarah_ungu);color:#fff;box-shadow:0 3px 0 var(--zianarah_ungu_gelap)}
+.zianarah_gelombang_header{position:absolute;left:0;top:calc(100% - 1px);width:100%;height:24px;fill:#00AEEF;pointer-events:none}
+#zianarah_header.zianarah_kecil .zianarah_baris_global{display:none}
+#zianarah_header.zianarah_kecil #zianarah_menu_bar{padding:6px 0 18px}
+#zianarah_header.zianarah_kecil .zianarah_logo_blok .zianarah_logo_gambar{height:34px}
+#zianarah_header.zianarah_kecil .zianarah_logo_negara{display:none}
+@media (max-width:1000px){#zianarah_menu_bar.zianarah_buka .zianarah_menu_link{color:#0A2540}}
+@media (max-width:620px){#zianarah_header .zianarah_donasi_atas{display:none}#zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:30px}.zianarah_baris_global{font-size:.74rem;gap:10px}}
+.zianarah_tombol_bahasa::before{content:"";width:18px;height:18px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230A2540' stroke-width='1.8'%3E%3Ccircle cx='12' cy='12' r='9.5'/%3E%3Cpath d='M2.5 12h19M12 2.5c3 3 3 16.500 0 19M12 2.5c-3 3-3 16.500 0 19'/%3E%3C/svg%3E") center/contain no-repeat;font-size:0}
+
+#zianarah_header .zianarah_menu_link.zianarah_aktif{background:#0B3A5E;color:#fff;box-shadow:0 3px 0 #061F33}
+
+/* ===== header v4: satu baris ramping, gradasi cyan memudar ke kanan, dropdown bahasa ===== */
+#zianarah_header{background:linear-gradient(90deg,#00AEEF 0%,#00AEEF 52%,rgba(0,174,239,.78) 82%,rgba(0,174,239,.5) 100%);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:background .3s,box-shadow .3s}
+.zianarah_gelombang_header{height:16px;fill:#00AEEF;opacity:.9;transition:opacity .3s}
+#zianarah_header .zianarah_baris_global{padding-top:5px;font-size:.76rem;position:relative;z-index:3}
+#zianarah_header .zianarah_header_atas{padding:0 0 8px;gap:14px;flex-wrap:nowrap}
+#zianarah_header .zianarah_logo_blok .zianarah_logo_gambar{height:32px}
+#zianarah_header .zianarah_logo_negara{font-size:.72rem;margin-top:1px}
+#zianarah_menu_bar{border-top:0;padding:0;flex:1 1 auto;min-width:0}
+.zianarah_menu{flex-wrap:nowrap;gap:2px;justify-content:center}
+#zianarah_header .zianarah_menu_link{white-space:nowrap;padding:6px 9px;font-size:.8rem;border-radius:999px}
+#zianarah_header .zianarah_menu_link.zianarah_aktif{background:#0B3A5E;color:#fff;box-shadow:none}
+#zianarah_header .zianarah_donasi_atas{height:34px;padding:0 16px;font-size:.78rem;white-space:nowrap}
+#zianarah_header .zianarah_tombol_tema{width:34px;height:34px;font-size:1.1rem}
+.zianarah_alat{flex-shrink:0}
+/* scroll: mengecil + memudar */
+#zianarah_header.zianarah_kecil{background:linear-gradient(90deg,#00AEEF 0%,#00AEEF 48%,rgba(0,174,239,.55) 80%,rgba(0,174,239,.2) 100%);box-shadow:0 6px 18px rgba(6,106,156,.12)}
+#zianarah_header.zianarah_kecil .zianarah_header_atas{padding:7px 0}
+#zianarah_header.zianarah_kecil .zianarah_logo_blok .zianarah_logo_gambar{height:26px}
+#zianarah_header.zianarah_kecil #zianarah_menu_bar{padding:0}
+#zianarah_header.zianarah_kecil .zianarah_menu_link{padding:5px 9px}
+#zianarah_header.zianarah_kecil .zianarah_gelombang_header{opacity:0}
+/* dropdown bahasa */
+.zianarah_pilih_bahasa{position:relative}
+.zianarah_daftar_bahasa{position:absolute;right:0;top:calc(100% + 10px);min-width:210px;list-style:none;margin:0;padding:8px;background:#fff;border-radius:16px;box-shadow:0 16px 40px rgba(6,40,70,.28);z-index:60}
+.zianarah_daftar_bahasa[hidden]{display:none}
+.zianarah_daftar_bahasa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:12px;border:0;background:none;padding:10px 12px;border-radius:10px;font:700 .88rem 'DM Sans',sans-serif;color:#0A2540;cursor:pointer;text-align:left}
+.zianarah_daftar_bahasa button:hover{background:#EEF8FD}
+.zianarah_daftar_bahasa button.zianarah_terpilih{background:#E3F4FC;color:#066A9C}
+.zianarah_centang{visibility:hidden}
+.zianarah_terpilih .zianarah_centang{visibility:visible}
+.zianarah_tombol_bahasa::after{transition:transform .2s}
+.zianarah_tombol_bahasa[aria-expanded="true"]::after{transform:rotate(180deg)}
+/* tema gelap */
+html[data-tema="malam"] #zianarah_header,body.zianarah_malam #zianarah_header{background:linear-gradient(90deg,#0B4A73 0%,#0B4A73 52%,rgba(11,74,115,.78) 82%,rgba(11,74,115,.5) 100%)}
+html[data-tema="malam"] #zianarah_header.zianarah_kecil{background:linear-gradient(90deg,#0B4A73 0%,#0B4A73 48%,rgba(11,74,115,.55) 80%,rgba(11,74,115,.2) 100%)}
+html[data-tema="malam"] .zianarah_gelombang_header{fill:#0B4A73}
+html[data-tema="malam"] .zianarah_baris_global,html[data-tema="malam"] .zianarah_baris_global a,html[data-tema="malam"] .zianarah_tombol_bahasa,html[data-tema="malam"] #zianarah_header .zianarah_logo_negara,html[data-tema="malam"] #zianarah_header .zianarah_menu_link{color:#E6F4FC}
+html[data-tema="malam"] .zianarah_pemisah{background:rgba(230,244,252,.4)}
+html[data-tema="malam"] .zianarah_tombol_bahasa::before{filter:invert(1) brightness(1.6)}
+html[data-tema="malam"] #zianarah_header .zianarah_menu_link:hover{background:rgba(255,255,255,.14);color:#fff}
+html[data-tema="malam"] #zianarah_header .zianarah_menu_link.zianarah_aktif{background:#00AEEF;color:#06101A}
+html[data-tema="malam"] .zianarah_daftar_bahasa{background:#13293A}
+html[data-tema="malam"] .zianarah_daftar_bahasa button{color:#E6F4FC}
+html[data-tema="malam"] .zianarah_daftar_bahasa button:hover{background:#1B3A52}
+html[data-tema="malam"] .zianarah_daftar_bahasa button.zianarah_terpilih{background:#0B5E8E;color:#fff}
+@media (max-width:1180px){#zianarah_header .zianarah_menu_link{padding:6px 6px;font-size:.76rem}#zianarah_header .zianarah_donasi_atas{padding:0 12px}}
+@media (max-width:1000px){
+  #zianarah_header .zianarah_header_atas{flex-wrap:wrap}
+  #zianarah_header .zianarah_alat{margin-left:auto}
+  #zianarah_menu_bar{order:3;flex:0 0 100%}
+  #zianarah_menu_bar.zianarah_buka{padding:8px 0 6px}
+  #zianarah_header .zianarah_menu{flex-wrap:wrap}
+  html[data-tema="malam"] #zianarah_menu_bar.zianarah_buka .zianarah_menu_link{color:#E6F4FC}
+}
+#zianarah_header .zianarah_wadah{max-width:1320px}
+#zianarah_header .zianarah_logo{flex-shrink:0}
+#zianarah_header .zianarah_header_atas{gap:10px}
+#zianarah_header .zianarah_menu_link{padding:6px 8px}
+
+/* kontak media (Pusat pers): kartu horizontal ringkas di paling bawah */
+.zianarah_kontak_media{display:flex;align-items:center;gap:18px;background:#fff;border:1px solid #D4EAF6;border-radius:20px;padding:20px 26px;margin-top:22px}
+.zianarah_km_ikon{width:52px;height:52px;border-radius:50%;background:#E3F4FC;display:grid;place-items:center;flex-shrink:0}
+.zianarah_km_ikon svg{width:24px;height:24px;stroke:#0A84C1;fill:none;stroke-width:1.8}
+.zianarah_km_isi{flex:1;min-width:0}
+.zianarah_km_isi h3{font-size:1.1rem;margin:0 0 4px}
+.zianarah_km_nama{font-size:.92rem;margin:0;color:var(--zianarah_teks)}
+.zianarah_km_ket{font-size:.88rem;margin:3px 0 0;color:var(--zianarah_teks_lembut,#64748B)}
+.zianarah_km_link{color:var(--zianarah_ungu_gelap);font-weight:700;white-space:nowrap;text-decoration:none;border-bottom:2px solid #00AEEF}
+html[data-tema="malam"] .zianarah_kontak_media{background:var(--zianarah_kartu,#13293A);border-color:#24475E}
+html[data-tema="malam"] .zianarah_km_ikon{background:#12384F}
+html[data-tema="malam"] .zianarah_km_link{color:#7DD3FC}
+@media (max-width:620px){.zianarah_kontak_media{flex-wrap:wrap}.zianarah_km_link{margin-left:70px}}
+
+/* ===== menu tiga garis + laci kiri (blur gradasi, latar tetap terlihat) ===== */
+.zianarah_tombol_garis3{width:38px;height:38px;border-radius:12px;border:2px solid #fff;background:transparent;display:grid;place-items:center;cursor:pointer;flex:none;transition:background .2s}
+.zianarah_tombol_garis3:hover{background:rgba(255,255,255,.25)}
+.zianarah_tombol_garis3 i{display:block;width:17px;height:2px;background:#fff;border-radius:2px;box-shadow:0 6px 0 #fff,0 -6px 0 #fff}
+#zianarah_header .zianarah_header_atas{gap:12px}
+.zianarah_laci_latar{position:fixed;inset:0;z-index:1190;background:linear-gradient(90deg,rgba(6,40,70,.38) 0%,rgba(6,40,70,.18) 50%,rgba(6,40,70,0) 100%);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);-webkit-mask-image:linear-gradient(90deg,#000 0%,#000 45%,rgba(0,0,0,.35) 100%);mask-image:linear-gradient(90deg,#000 0%,#000 45%,rgba(0,0,0,.35) 100%);opacity:0;transition:opacity .3s}
+.zianarah_laci_latar.zianarah_tampil{opacity:1}
+.zianarah_laci_latar[hidden]{display:none}
+.zianarah_laci{position:fixed;left:0;top:0;bottom:0;width:min(340px,86vw);z-index:1200;background:#fff;box-shadow:12px 0 40px rgba(6,40,70,.3);transform:translateX(-105%);transition:transform .32s var(--zianarah_ease,ease);display:flex;flex-direction:column;visibility:hidden}
+.zianarah_laci.zianarah_buka_laci{transform:none;visibility:visible}
+.zianarah_laci_kepala{display:flex;align-items:center;justify-content:space-between;background:#00AEEF;padding:12px 18px}
+.zianarah_laci_kepala img{height:28px}
+.zianarah_laci_kepala button{width:34px;height:34px;border-radius:50%;border:2px solid #fff;background:transparent;color:#fff;font-weight:800;cursor:pointer}
+.zianarah_laci_isi{flex:1;overflow-y:auto;padding:12px 14px}
+.zianarah_laci_isi ul{list-style:none;margin:0;padding:0}
+.zianarah_laci_isi a{display:block;padding:10px 12px;border-radius:12px;font:700 .92rem 'DM Sans',sans-serif;color:#0B3A5E;text-decoration:none}
+.zianarah_laci_isi a:hover{background:#EEF8FD}
+.zianarah_laci_isi a.zianarah_aktif{background:#E3F4FC;color:#066A9C}
+.zianarah_laci_sub{padding:0 0 6px 22px!important}
+.zianarah_laci_sub a{font-weight:600;font-size:.82rem;padding:6px 12px;color:#334E68}
+.zianarah_laci_kaki{padding:12px 18px 18px;border-top:1px solid #E3F4FC}
+.zianarah_laci_kaki a{display:block;text-align:center;border:2px solid #00AEEF;color:#066A9C;border-radius:999px;padding:9px;font-weight:800;text-decoration:none}
+html[data-tema="malam"] .zianarah_laci{background:#0F2433}
+html[data-tema="malam"] .zianarah_laci_kepala{background:#0B4A73}
+html[data-tema="malam"] .zianarah_laci_isi a{color:#E6F4FC}
+html[data-tema="malam"] .zianarah_laci_sub a{color:#9CC7DE}
+html[data-tema="malam"] .zianarah_laci_isi a:hover{background:#13293A}
+html[data-tema="malam"] .zianarah_laci_isi a.zianarah_aktif{background:#0B5E8E;color:#fff}
+html[data-tema="malam"] .zianarah_laci_kaki{border-color:#24475E}
+html[data-tema="malam"] .zianarah_laci_kaki a{color:#7DD3FC;border-color:#00AEEF}
+html[data-tema="malam"] .zianarah_tombol_garis3 i{background:#E6F4FC;box-shadow:0 6px 0 #E6F4FC,0 -6px 0 #E6F4FC}
+/* foto kartu cerita besar (beranda): rasio asli 3:2, tidak ditarik/di-zoom */
+.zianarah_besar .zianarah_foto_bungkus{aspect-ratio:3/2;flex:none;height:auto}
+.zianarah_besar .zianarah_foto{height:100%;object-fit:cover}
