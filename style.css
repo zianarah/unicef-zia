@@ -689,3 +689,8 @@ html[data-tema="malam"] .zianarah_tombol_garis3 i{background:#E6F4FC;box-shadow:
   #zianarah_header .zianarah_header_atas{gap:clamp(5px,1.6vw,12px)}
   #zianarah_header .zianarah_logo{min-width:0;flex-shrink:1}
 }
+/* HP: foto hero tidak tertutup gelombang, label atas tidak tertutup header */
+@media (max-width:1000px){
+  .zianarah_hero_isi,.zianarah_hero_halaman .zianarah_hero_isi{padding:56px 22px 140px}
+  .zianarah_hero .zianarah_gelombang,.zianarah_hero_halaman .zianarah_gelombang{height:40px}
+}
