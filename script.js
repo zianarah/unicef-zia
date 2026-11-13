@@ -44,8 +44,7 @@
   if (zianarah_bahasa_kini === 'en') { zianarah_terapkan_bahasa('en'); }
   var zianarah_daftar_bahasa = document.getElementById('zianarah_daftar_bahasa');
   function zianarah_tandai_bahasa() {
-    if (!zianarah_daftar_bahasa) { return; }
-    zianarah_semua('#zianarah_daftar_bahasa button').forEach(function (t) {
+    zianarah_semua('[data-bahasa]').forEach(function (t) {
       t.classList.toggle('zianarah_terpilih', t.getAttribute('data-bahasa') === zianarah_bahasa_kini);
     });
   }
@@ -60,7 +59,7 @@
       var buka = zianarah_daftar_bahasa.hidden;
       zianarah_daftar_bahasa.hidden = !buka; zianarah_tombol_bahasa.setAttribute('aria-expanded', buka ? 'true' : 'false');
     });
-    zianarah_semua('#zianarah_daftar_bahasa button').forEach(function (t) {
+    zianarah_semua('[data-bahasa]').forEach(function (t) {
       t.addEventListener('click', function () {
         zianarah_bahasa_kini = t.getAttribute('data-bahasa');
         zianarah_terapkan_bahasa(zianarah_bahasa_kini); zianarah_simpan('zianarah_bahasa', zianarah_bahasa_kini);
@@ -89,6 +88,8 @@
     document.getElementById('zianarah_laci_tutup').addEventListener('click', function () { zianarah_laci_set(false); });
     zianarah_latar.addEventListener('click', function () { zianarah_laci_set(false); });
     document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { zianarah_laci_set(false); } });
+    var zianarah_laci_tema = document.getElementById('zianarah_laci_tema');
+    if (zianarah_laci_tema) { zianarah_laci_tema.addEventListener('click', function () { var b = document.getElementById('zianarah_tombol_tema'); if (b) { b.click(); } }); }
     zianarah_semua('#zianarah_laci a').forEach(function (a) { a.addEventListener('click', function () { zianarah_laci_set(false); }); });
   }
 
